@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    <div>价格: <span id="price"></span>
+      <button id="priceadd">+</button>
+      <button id="pricemin">-</button>
+    </div>
+    <div>数量: <span id="num"></span>
+      <button id="numadd">+</button>
+      <button id="nummin">-</button>
+    </div>
+    <div>总价: <span id="total"></span></div>
+    <div>类型：<span id="type"></span>
+      <input id="input" />
+    </div>
+  </div>
+    <script src="./7.obervable.js"></script>
+    <script>
+      let product = {
+        price: 1,
+        num: 1,
+        type: ['食品', '辣条'],
+        get total () {
+          return this.price * this.num
+        }
+      }
+      
+      let obs = new Observabel(product, init)
+      init()
+      function init () {
+        document.getElementById('price').innerHTML = obs._data.price
+        document.getElementById('num').innerHTML = obs._data.num
+        document.getElementById('total').innerHTML = obs._data.total
+        document.getElementById('type').innerHTML = obs._data.type
+      }
+      let btn1 = document.getElementById('priceadd')
+      btn1.addEventListener('click', function() {
+        obs._data.price ++
+      })
+      let btn2 = document.getElementById('pricemin')
+      btn2.addEventListener('click', function() {
+        if (obs._data.price === 0) return
+        obs._data.price --
+      })
+      let btn3 = document.getElementById('numadd')
+      btn3.addEventListener('click', function() {
+        obs._data.num ++
+      })
+      let btn4 = document.getElementById('nummin')
+      btn4.addEventListener('click', function() {
+        if (obs._data.num === 0) return
+        obs._data.num --
+      })
+
+      let input = document.getElementById('input')
+      input.addEventListener('keydown', function(e) {
+        if (e.keyCode === 13) {
+          obs._data.type.push(e.target.value.trim())
+          console.log(obs._data.type, 'obs._data.type')
+          e.target.value = ''
+        }
+      })
+    </script>
+
+</body>
+</html>
