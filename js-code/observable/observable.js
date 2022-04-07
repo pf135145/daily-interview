@@ -1,28 +1,29 @@
-//简单实现vue双向绑定的原理
+//用 proxy 简单实现vue双向绑定的原理
 
 class Observabel {
   constructor(obj, fn) {
-    // this._data = obj
     window.notifyFn = fn;
     // this.walk(this._data)
     this._data = this.newObserval(obj);
+    this.walk(this._data)
   }
 
   walk(data) {
     for (let key in data) {
-      if (typeof data[key] === 'object' && !Array.isArray(data[key])) {
-        this.walk(data[key]);
-      } else {
-        if (Array.isArray(data[key])) {
-          this.observalArr(data[key]);
+      if (Array.isArray(data[key])) {
+        try {
+          data[key] = this.newObserval(data[key])
+        } catch (error) {
+          console.log(error)
         }
-        this.observal(data, key, data[key]);
+        
       }
+      // if (typeof data[key] === 'object' && !Array.isArray(data[key])) {
+      //   this.walk(data[key]);
+      // } else {
+      //   this.observal(data, key, data[key]);
+      // }
     }
-  }
-
-  observalArr(data) {
-    data.push = rePush;
   }
 
   observal(data, key, val) {
@@ -41,20 +42,16 @@ class Observabel {
 
   newObserval(obj) {
     return new Proxy(obj, {
-      get(obj, key) {
-        console.log('---key', key);
+      get(target, key, receiver) {
+        // console.log('---key', key);
         return obj[key];
       },
-      set(obj, key, val) {
+      set(obj, key, val, receiver) {
         obj[key] = val;
+        console.log('---key', key);
         window.notifyFn();
-        return Reflect.set(obj, key, val);
+        // return Reflect.set(obj, key, val);
       },
     });
   }
-}
-
-function rePush(...args) {
-  [].push.apply(this, args);
-  window.notifyFn();
 }

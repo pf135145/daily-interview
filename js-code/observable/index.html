@@ -38,7 +38,7 @@
     let obs = new Observabel(product, init)
     init()
     function init() {
-      console.log('render')
+      // console.log('render')
       document.getElementById('price').innerHTML = obs._data.price
       document.getElementById('num').innerHTML = obs._data.num
       document.getElementById('total').innerHTML = obs._data.total
@@ -67,12 +67,12 @@
     input.addEventListener('keydown', function (e) {
       if (e.keyCode === 13) {
         obs._data.type.push(e.target.value.trim())
-        console.log(obs._data.type, 'obs._data.type')
+        // init()
+        // console.log(obs._data.type, 'obs._data.type')
         e.target.value = ''
       }
     })
   </script>
-
 </body>
 
 </html>

@@ -1,6 +1,8 @@
-// 写一个function(fun, times,  interval)，使其在interval时间间隔中，执行times 次fun函数。 
+// 实现 repeat 函数，使其在 interval 时间间隔中，执行 times 次函数
 
-function repeat1(fn, times, interval) {
+// 思路：使用闭包记录当前执行次数，使用 setTimeout 执行
+
+function repeat(fn, times, interval) {
   if (times === 0) return
   process(times)
   function process(times) {
@@ -17,7 +19,7 @@ function repeat1(fn, times, interval) {
 }
 
 function aa() {
-  console.log(0)
+  console.log('aa')
 }
 
 repeat(aa, 3, 1000)

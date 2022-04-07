@@ -1,100 +1,63 @@
-const a = [{
-    pid: null,
-    name: '1',
-    id: 1
+// 将数组 A 转成 res 格式对象
+// 规则：父子关系：子pid == 父id，pid为null则为根节点
+
+const A = [{
+  pid: null,
+  name: '1',
+  id: 1
 }, {
-    pid: 2,
-    id: 4,
-    name: '1-1-1'
+  pid: 2,
+  id: 4,
+  name: '1-1-1'
 }, {
-    pid: 1,
-    id: 2,
-    name: '1-1'
+  pid: 1,
+  id: 2,
+  name: '1-1'
 }, {
-    pid: 1,
-    id: 3,
-    name: '1-2'
+  pid: 1,
+  id: 3,
+  name: '1-2'
 }, {
-    pid: 3,
-    id: 5,
-    name: '1-2-1'
+  pid: 3,
+  id: 5,
+  name: '1-2-1'
 },
 {
-    pid: 5,
-    id: 6,
-    name: '1-2-1-1'
+  pid: 5,
+  id: 6,
+  name: '1-2-1-1'
 }]
 
-/**
- * a  转成 res
- */
-
-
-
-
-
-//
 res = {
-    id: 1,
-    name: '1',
+  id: 1,
+  name: '1',
+  children: [{
+    id: 2,
+    name: '1-1',
     children: [{
-        id: 2,
-        name: '1-1',
-        children: [{
-            id: 4,
-            name: '1-1-1',
-        }]
-    }, {
-        id: 3,
-        name: '1-2',
-        children: [{
-            id: 5,
-            name: '1-2-1',
-        }]
+      id: 4,
+      name: '1-1-1',
     }]
+}, {
+    id: 3,
+    name: '1-2',
+    children: [{
+      id: 5,
+      name: '1-2-1',
+    }]
+  }]
 }
 
-function handleArr(arr) {
-    let start = arr.find(it => {
-        return it.pid === null
-    })
-    let obj = {}
-    obj.name = start.name
-    obj.id = start.id
-    process(obj, arr)
-    return obj
-}
+// 思路：创建两个对象，一个用来存储数组A，一个用来存储返回结果
+// 在data对象中处理children的引用
 
-function process(obj, arr) {
-    let children = []
-    arr.forEach(it => {
-        if (it.pid == obj.id) {
-            children.push(it)
-        }
-    })
-    obj.children = children.map(item => {
-        return {
-            id: item.id,
-            name: item.name,
-            children: []
-        }
-    })
-    console.log(children)
-    for(let i=0; i<obj.children.length; i++) {
-      process(obj.children[i], arr)
-    }
-}
-
-
-// console.log(handleArr(a))
-
-// 小燕解法
-function transformListToTree (list) {
+function transformListToTree(arr) {
   let data = {}
   let res = {}
-  list.map(item => {
-    data[item.id] = item
+  arr.forEach(it => {
+    data[it.id] = it
   })
+  console.log(data)
   for (let id in data) {
     const item = data[id]
     if (!item.pid) {
@@ -106,5 +69,5 @@ function transformListToTree (list) {
   }
   return res
 }
-
-console.log(transformListToTree(a))
+transformListToTree(A)
+// console.log(transformListToTree(A))

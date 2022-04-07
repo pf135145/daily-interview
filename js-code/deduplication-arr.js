@@ -1,4 +1,4 @@
-// 数组去重的方法
+// 数组去重
 
 // 对象
 function duplication1(arr) {
@@ -10,21 +10,14 @@ function duplication1(arr) {
   return Object.keys(obj).map(it => +it)
 }
 
-//indexOf
+// reduce
 function duplication2(arr) {
   if (!Array.isArray(arr) || arr.length < 2 ) return arr
-  let res = []
-  arr.forEach(it => {
-    if (res.indexOf(it) === -1) res.push(it)
-  }) 
-  return res
-}
-function fn (arr) {
-  return arr.reduce((list, cur) => {
-    if (!list.includes(cur)) {
-      list.push(cur)
+  return arr.reduce((pre, cur) => {
+    if (pre.indexOf(cur) === -1) {
+      pre.push(cur)
     }
-    return list
+    return pre
   }, [])
 }
 
@@ -34,10 +27,7 @@ function duplication3(arr) {
   return [...new Set(arr)]
 }
 
+
 // console.log(duplication1([1,2,1,1,1]))
 // console.log(duplication2([1,2,1,1,1]))
-// console.log(duplication3([1,2,1,1,1]))
-
-let a = [1,1,2]
-let res = fn(a)
-console.log('res', res)
+// console.log(duplication4([1,2,1,1,1]))
