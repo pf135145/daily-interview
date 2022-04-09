@@ -9,7 +9,7 @@ function repeat(fun, times, wait) {
       }, wait)
     }
   }
-  return process()
+  process()
 }
 
 function say() {
