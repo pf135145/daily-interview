@@ -28,12 +28,29 @@ function to10Num_(str) {
 function to2Num_(num) {
   let res = []
   let isNegative = num > 0 ? false : true
+  num = Math.abs(num)
   while(num / 2) {
     res.unshift(num % 2)
     num = Math.floor(num / 2)
   }
   if (isNegative) {
-    res.forEach()
+    res = res
+      .map(it => it = it == 1 ? 0 : 1 )
+      .reverse()
+    let progress = true;
+    let i=0;
+    while(progress && i<res.length) {
+      if (res[i] == 0) {
+        res[i] = 1
+        progress = false
+      } else {
+        res[i] = 0
+      }
+      i ++
+    }
+    if (progress) res.push(1)
+    res = res.reverse()
   }
   return res.join('')
 }
+console.log(to2Num_(-42))
