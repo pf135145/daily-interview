@@ -16,7 +16,7 @@
 
 ### js 手写题
 
-- [ ] 1. 实现 new 操作
+- [x] 1. 实现 new 操作
 - [ ] 2. 实现并行限制的 Promise
 
 ```js
@@ -90,8 +90,8 @@ const data2 = {"a.b.e": 3, "a.b.f": 4} // 把如上两个对象合并成一个JS
 
 周一：
 
-- [ ] 1.https://leetcode-cn.com/problems/single-number/
-- [ ] 2.https://leetcode-cn.com/problems/contains-duplicate/
+- [x] 1.https://leetcode-cn.com/problems/single-number/
+- [x] 2.https://leetcode-cn.com/problems/contains-duplicate/
 
 周二：全是简单链表题不要害怕
 
@@ -166,8 +166,8 @@ function retryFetch(fn, delay, times) {}
 ```
 
 - [x] 6. 二进制转为数字，数字专为二进制
-- [ ] 7. 实现一个发布订阅，on/off/once/emit
-- [ ] 8. koa 洋葱模型
+- [x] 7. 实现一个发布订阅，on/off/once/emit
+- [x] 8. koa 洋葱模型
 
 ```js
 // koa洋葱模型
@@ -212,9 +212,9 @@ compose(arr);
 function compose(arr) {}
 ```
 
-- [ ] 9. 实现深拷贝，尽可能想的全面（Symbol 类型数据，自己引用自己的对象，简单数据类型）
+- [x] 9. 实现深拷贝，尽可能想的全面（Symbol 类型数据，自己引用自己的对象，简单数据类型）
 
-- [ ] 10. 取出连续重复字符的个数
+- [x] 10. 取出连续重复字符的个数
       'asdfglaaabbbcccddddddeeeeeefaew' 返回 5。
       使用两个方法作答，正常遍历和正则表达式
 
