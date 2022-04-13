@@ -6,7 +6,7 @@
 
 ### 前端知识
 
-- [ ] webpack 如何配置，常见的配置项有哪些
+- [x] webpack 如何配置，常见的配置项有哪些
 - [ ] webpack 热更新如何开启，热更新的原理
 - [ ] webpack 构建的流程
 - [ ] webpack 如何提升构建速度
@@ -17,7 +17,7 @@
 ### js 手写题
 
 - [x] 1. 实现 new 操作
-- [ ] 2. 实现并行限制的 Promise
+- [x] 2. 实现并行限制的 Promise
 
 ```js
 /*
@@ -56,16 +56,16 @@ addTask(400, '4')
 */
 ```
 
-- [ ] 3.Promise.all/race/allSeleted
-- [ ] 4.requestAnimationFrame 实现 setTimeout/setInterval
-- [ ] 5.手机号码 3-3-4 分割
-- [ ] 6.千分位格式化数字
+- [x] 3.Promise.all/race/allSeleted
+- [x] 4.requestAnimationFrame 实现 setTimeout/setInterval
+- [x] 5.手机号码 3-3-4 分割
+- [x] 6.千分位格式化数字
 
 ```js
 // 将0.12345678变成0.12,345,678
 ```
 
-- [ ] 7.字符串变驼峰
+- [x] 7.字符串变驼峰
 - [ ] 8.手写 async/await 实现，其内部远离
 - [ ] 9.实现一个 node 异步函数的 promisify
 - [ ] 10.实现 obj2json 函数
@@ -95,36 +95,35 @@ const data2 = {"a.b.e": 3, "a.b.f": 4} // 把如上两个对象合并成一个JS
 
 周二：全是简单链表题不要害怕
 
-- [ ] 3.https://leetcode-cn.com/problems/linked-list-cycle/
-- [ ] 4.https://leetcode-cn.com/problems/intersection-of-two-linked-lists/
-- [ ] 5.https://leetcode-cn.com/problems/reverse-linked-list/
-- [ ] 6.https://leetcode-cn.com/problems/delete-node-in-a-linked-list/
-- [ ] 7.https://leetcode-cn.com/problems/delete-node-in-a-linked-list/
+- [x] 3.https://leetcode-cn.com/problems/linked-list-cycle/
+- [x] 4.https://leetcode-cn.com/problems/intersection-of-two-linked-lists/
+- [x] 5.https://leetcode-cn.com/problems/reverse-linked-list/
+- [x] 6.https://leetcode-cn.com/problems/delete-node-in-a-linked-list/
 
 周三：
 
-- [ ] 8.https://leetcode-cn.com/problems/contains-duplicate/
-- [ ] 9.https://leetcode-cn.com/problems/reverse-string/
-- [ ] 10.https://leetcode-cn.com/problems/reverse-words-in-a-string-iii/
+- [x] 7.https://leetcode-cn.com/problems/contains-duplicate/
+- [x] 8.https://leetcode-cn.com/problems/reverse-string/
+- [x] 9.https://leetcode-cn.com/problems/reverse-words-in-a-string-iii/
 
 周四：
 
-- [ ] 11.https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-search-tree/
-- [ ] 12.https://leetcode-cn.com/problems/add-two-numbers/
+- [ ] 10.https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-search-tree/
+- [ ] 11.https://leetcode-cn.com/problems/add-two-numbers/
 
 周五：
 
-- [ ] 13.https://leetcode-cn.com/problems/longest-palindromic-substring/
-- [ ] 14.https://leetcode-cn.com/problems/reverse-integer/
+- [ ] 12.https://leetcode-cn.com/problems/longest-palindromic-substring/
+- [ ] 13.https://leetcode-cn.com/problems/reverse-integer/
 
 周末：
 
-- [ ] 15.https://leetcode-cn.com/problems/container-with-most-water/
-- [ ] 16.https://leetcode-cn.com/problems/3sum/
-- [ ] 17.https://leetcode-cn.com/problems/3sum-closest/
-- [ ] 18.https://leetcode-cn.com/problems/search-in-rotated-sorted-array/
-- [ ] 19.https://leetcode-cn.com/problems/multiply-strings/
-- [ ] 20.https://leetcode-cn.com/problems/permutations/
+- [ ] 14.https://leetcode-cn.com/problems/container-with-most-water/
+- [ ] 15.https://leetcode-cn.com/problems/3sum/
+- [ ] 16.https://leetcode-cn.com/problems/3sum-closest/
+- [ ] 17.https://leetcode-cn.com/problems/search-in-rotated-sorted-array/
+- [ ] 18.https://leetcode-cn.com/problems/multiply-strings/
+- [ ] 19.https://leetcode-cn.com/problems/permutations/
 
 ## 20220406-20220410
 
