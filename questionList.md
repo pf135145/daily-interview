@@ -108,7 +108,7 @@ const data2 = {"a.b.e": 3, "a.b.f": 4} // 把如上两个对象合并成一个JS
 
 周四：
 
-- [ ] 10.https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-search-tree/
+- [x] 10.https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-search-tree/
 - [ ] 11.https://leetcode-cn.com/problems/add-two-numbers/
 
 周五：
