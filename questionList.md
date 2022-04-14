@@ -109,11 +109,11 @@ const data2 = {"a.b.e": 3, "a.b.f": 4} // 把如上两个对象合并成一个JS
 周四：
 
 - [x] 10.https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-search-tree/
-- [ ] 11.https://leetcode-cn.com/problems/add-two-numbers/
+- [x] 11.https://leetcode-cn.com/problems/add-two-numbers/
 
 周五：
 
-- [ ] 12.https://leetcode-cn.com/problems/longest-palindromic-substring/
+- [x] 12.https://leetcode-cn.com/problems/longest-palindromic-substring/
 - [ ] 13.https://leetcode-cn.com/problems/reverse-integer/
 
 周末：
