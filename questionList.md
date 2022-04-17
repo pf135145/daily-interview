@@ -114,13 +114,13 @@ const data2 = {"a.b.e": 3, "a.b.f": 4} // 把如上两个对象合并成一个JS
 周五：
 
 - [x] 12.https://leetcode-cn.com/problems/longest-palindromic-substring/
-- [ ] 13.https://leetcode-cn.com/problems/reverse-integer/
+- [x] 13.https://leetcode-cn.com/problems/reverse-integer/
 
 周末：
 
-- [ ] 14.https://leetcode-cn.com/problems/container-with-most-water/
-- [ ] 15.https://leetcode-cn.com/problems/3sum/
-- [ ] 16.https://leetcode-cn.com/problems/3sum-closest/
+- [x] 14.https://leetcode-cn.com/problems/container-with-most-water/
+- [x] 15.https://leetcode-cn.com/problems/3sum/
+- [x] 16.https://leetcode-cn.com/problems/3sum-closest/
 - [ ] 17.https://leetcode-cn.com/problems/search-in-rotated-sorted-array/
 - [ ] 18.https://leetcode-cn.com/problems/multiply-strings/
 - [ ] 19.https://leetcode-cn.com/problems/permutations/
