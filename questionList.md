@@ -2,6 +2,76 @@
 
 以周为单位
 
+## 20220418-20220422
+
+本周日程安排**优先级**：
+
+1. 前端知识
+2. js 基础
+3. 算法题
+
+建议白天学习前端知识和 js 基础，晚上学习算法题
+
+### 前端知识--前端工程化之 webpack
+
+作业：完成笔记记录后，周日巩固画出一个思维导图
+
+- [ ] webpack 如何配置，常见的配置项有哪些 => 上周完成的 config 配置重点关于 optimization 没有描述
+- [ ] webpack 热更新如何开启，热更新的原理
+- [ ] webpack 构建的流程
+- [ ] webpack 如何提升构建速度
+- [ ] 多进程构建的原理
+- [ ] webpack5 的配置项目和 webpack4 的差别
+- [ ] webpack5 的优势
+
+### js 基础题
+
+https://muyiy.cn/question/
+
+- [ ] 1.手写 async/await 实现，其内部远离
+- [ ] 2.实现一个 node 异步函数的 promisify
+- [ ] 3.实现 obj2json 函数
+- [ ] 4.手写继承 原型链继承、类继承、组合继承、寄生组合继承、es6 继承。ES5/ES6 继承除了写法上还有什么区别（ （https://muyiy.cn/question/js/7.html ）
+- [ ] 5.介绍下 Set、Map、WeakSet 和 WeakMap 的区别？（https://muyiy.cn/question/js/4.html）
+- [ ] 6.介绍模块化发展历程：可从 IIFE、AMD、CMD、CommonJS、UMD、webpack(require.ensure)、ES Module、<script type="module"> 这几个角度考虑。（https://muyiy.cn/question/js/7.html）
+- [ ] 7.全局作用域中，用 const 和 let 声明的变量不在 window 上，那到底在哪里？如何去获取？（https://muyiy.cn/question/js/27.html）var、let 和 const 区别的实现原理是什么
+
+周末集中练习 看代码写出运行结果（https://muyiy.cn/question/）
+
+### 算法题
+
+周一：
+
+- [ ] https://leetcode-cn.com/problems/search-in-rotated-sorted-array/
+- [ ] https://leetcode-cn.com/problems/multiply-strings/
+
+周二：
+
+- [ ] https://leetcode-cn.com/problems/permutations/
+- [ ] https://leetcode-cn.com/problems/rotate-list/
+
+周三：
+
+- [ ] https://leetcode-cn.com/problems/unique-paths/
+- [ ] https://leetcode-cn.com/problems/subsets/
+
+周四：
+
+- [ ] https://leetcode-cn.com/problems/linked-list-cycle-ii/
+- [ ] https://leetcode-cn.com/problems/sort-list/
+
+周五：
+
+- [ ] https://leetcode-cn.com/problems/lru-cache/
+- [ ] https://leetcode-cn.com/problems/kth-largest-element-in-an-array/
+
+周末：
+
+- [ ] https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/
+- [ ] https://leetcode-cn.com/problems/kth-smallest-element-in-a-bst/
+- [ ] https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree/
+- [ ] https://leetcode-cn.com/problems/product-of-array-except-self/
+
 ## 20220411-20220417
 
 ### 前端知识
