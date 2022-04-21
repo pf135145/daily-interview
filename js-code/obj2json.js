@@ -13,30 +13,40 @@ const data2 = {"a.b.e": 3, "a.b.f": 4}
 //   }
 // }
 
-function transData(arr, value){
-  let res = {}
-  let head = res
-  for (let i=0; i< arr.length; i++) {
-    let cur = arr[i]
-    if (i + 1< arr.length) {
-      let o = {}
-      head[cur] = o
-      head = o
+// 思路：把对象想象成链表，把属性拆分成数组，循环数组，切换到链表的下一个，注意重复属性
+
+function transObj(obj1, obj2) {
+  let obj = Object.assign(obj1, obj2)
+  const res = {};
+  for (const key in obj) {
+    if (key.indexOf('.') === -1) {
+      res[key] = obj[key];
     } else {
-      head[cur] = value
+      const props = key.split('.');
+      let temp = res;
+      const len = props.length - 1;
+      props.forEach((it, idx) => {
+        if (!temp[it]) {
+          const o = {};
+          if (it === 'b') {
+          }
+          temp[it] = o;
+          if (idx !== len) {
+            temp = o;
+          } else {
+            temp[it] = obj[key];
+          }
+        } else {
+          if (idx === len) {
+            temp[it] = obj[key];
+          } else {
+            temp = temp[it]
+          }
+        }
+      });
     }
   }
-  return res
+  return res;
 }
 
-function obj2json(obj1, obj2) {
-  let temp = Object.assign(obj1, obj2)
-  let list = []
-  for (let key in temp) {
-    let arr = key.split('.')
-    list.push(transData(arr, temp[key]))
-  }
-  return Object.assign(...list)
-}
-// 有问题 没做完
-console.log(obj2json(data1, data2))
+console.log(transObj(data1, data2))
