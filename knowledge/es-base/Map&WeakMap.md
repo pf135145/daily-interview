@@ -1,4 +1,4 @@
-### Map 和 WeakMap 以及它们的区别？
+## Map 和 WeakMap 以及它们的区别？
 
 JavaScript 的对象（Object），本质上是键值对的集合（Hash 结构），但是传统上只能用字符串当作键。这给它的使用带来了很大的限制。
 
@@ -12,7 +12,7 @@ data['[object HTMLDivElement]'] // "metadata"
 上面代码原意是将一个 DOM 节点作为对象data的键，但是由于对象只接受字符串作为键名，所以element被自动转为字符串[object HTMLDivElement]。
 
 
-#### Map
+### Map
 
 * map也是键值对的集合，map的key可以是普通的值，也可以是对象
 
@@ -62,7 +62,7 @@ map.get(1) // "bbb"
 
 * 遍历（同set）
 
-#### WeakMap
+### WeakMap
 
 * WeakMap 只接受对象作为键名（null除外），不接受其他类型的值作为键名。
 
@@ -99,9 +99,15 @@ myElement.addEventListener('click', function() {
 }, false);
 ```
 
+### WeakMap使用场景
 
+WeakMap的**键名**所引用的对象都是弱引用，不计入垃圾回收机制。只要所引用的对象的其他引用都被清除，垃圾回收机制就会释放该对象所占用的内存。
 
+WeakMap的使用场景就是，它的键所对应的对象，可能会在将来消失。WeakMap结构有助于防止内存泄漏。
 
+注意，WeakMap 弱引用的只是键名，而不是键值。键值依然是正常引用。
+
+[WeakMap 弱引用示例](https://es6.ruanyifeng.com/#docs/set-map#WeakMap-%E7%9A%84%E7%A4%BA%E4%BE%8B)
 
 
 

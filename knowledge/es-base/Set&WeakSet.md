@@ -1,6 +1,6 @@
-### Set 和 WeakSet 以及它们的区别？
+## Set 和 WeakSet 以及它们的区别？
 
-#### set
+### set
 
 * es6 一种新的数据结构，set函数可以接受一个数组（或者具有 iterable 接口的其他数据结构）作为参数，用来初始化。
 
@@ -84,7 +84,7 @@ console.log(arr2);
 // output: Array [1, 2, 3, 4]
 ```
 
-#### Weakset
+### Weakset
 
 WeakSet 结构与 Set 类似，也是不重复的值的集合。但是，它与 Set 有两个区别。
 
