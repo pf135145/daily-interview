@@ -31,10 +31,10 @@ https://muyiy.cn/question/
 - [ ] 1.手写 async/await 实现，其内部远离
 - [ ] 2.实现一个 node 异步函数的 promisify
 - [x] 3.实现 obj2json 函数
-- [ ] 4.手写继承 原型链继承、类继承、组合继承、寄生组合继承、es6 继承。ES5/ES6 继承除了写法上还有什么区别( (https://muyiy.cn/question/js/7.html )
+- [x] 4.手写继承 原型链继承、类继承、组合继承、寄生组合继承、es6 继承。ES5/ES6 继承除了写法上还有什么区别( (https://muyiy.cn/question/js/7.html )
 - [x] 5.介绍下 Set、Map、WeakSet 和 WeakMap 的区别？(https://muyiy.cn/question/js/4.html)
 - [x] 6.介绍模块化发展历程：可从 IIFE、AMD、CMD、CommonJS、UMD、webpack(require.ensure)、ES Module、<script type="module"> 这几个角度考虑。(https://muyiy.cn/question/js/7.html)
-- [ ] 7.全局作用域中，用 const 和 let 声明的变量不在 window 上，那到底在哪里？如何去获取？(https://muyiy.cn/question/js/27.html) var、let 和 const 区别的实现原理是什么
+- [x] 7.全局作用域中，用 const 和 let 声明的变量不在 window 上，那到底在哪里？如何去获取？(https://muyiy.cn/question/js/27.html) var、let 和 const 区别的实现原理是什么
 
 周末集中练习 看代码写出运行结果(https://muyiy.cn/question/)
 

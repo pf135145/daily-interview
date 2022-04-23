@@ -117,4 +117,64 @@ var number = require(`./${moduleName}`)
 
 由于缓存机制的存在，CommonJS的模块之间可以进行循环加载，而不用担心引起死循环，一旦某个模块被循环加载，就只输出已经执行的部分，还未执行的部分不会输出。
 
+#### 总结
+
+* CommonJS 模块由 JS 运行时实现。
+* CommonJs 是单个值导出，本质上导出的就是 exports 属性。
+* CommonJS 是可以动态加载的，对每一个加载都存在缓存，可以有效的解决循环引用问题。
+* CommonJS 模块同步加载并执行模块文件。
+
 ### ES6
+
+ES6模块化的设计思想是尽量的静态化，使得在编译时就能够确定模块之间的依赖关系。利用ES6模块静态化加载方案，就可以实现Tree Shaking来优化代码。
+
+#### 加载机制
+
+ES6模块只是输出的是一个对外的接口，我们可以把这个接口理解为一个引用，并且是**只读引用**
+
+```
+//obj.js
+let num = 1
+let list = [1,2]
+export { num, list }
+
+//main.js
+import { num, list } from './obj.js'
+
+num = 3    //Error: "num" is read-only.
+list = [3, 4]   //Error: "list" is read-only.
+```
+
+#### 循环引用
+
+与 Common.js 不同的是 ，ES6 模块提前加载并执行模块文件，ES6 模块在预处理阶段分析模块依赖，在执行阶段执行模块，两个阶段都采用深度优先遍历，执行顺序是子 -> 父。
+
+```
+// main.js
+console.log('main.js开始执行')
+import say from './a'
+import say1 from './b'
+console.log('main.js执行完毕')
+
+// a.js
+import b from './b'
+console.log('a模块加载')
+export default  function say (){
+    console.log('hello , world')
+}
+
+// b.js
+console.log('b模块加载')
+export default function sayhello(){
+    console.log('hello,world')
+}
+```
+
+#### 总结
+
+* ES6 Module 静态的，不能放在块级作用域内，代码发生在编译时。
+* ES6 Module 的值是动态绑定的，可以通过导出方法修改，可以直接访问修改结果。
+* ES6 Module 可以导出多个属性和方法，可以单个导入导出，混合导入导出。
+* ES6 模块提前加载并执行模块文件，
+* ES6 Module 导入模块在严格模式下。
+* ES6 Module 的特性可以很容易实现 Tree Shaking 和 Code Splitting。
