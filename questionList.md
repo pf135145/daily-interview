@@ -16,7 +16,7 @@
 
 作业：完成笔记记录后，周日巩固画出一个思维导图
 
-- [ ] webpack 如何配置，常见的配置项有哪些 => 上周完成的 config 配置重点关于 optimization 没有描述
+- [x] webpack 如何配置，常见的配置项有哪些 => 上周完成的 config 配置重点关于 optimization 没有描述
 - [ ] webpack 热更新如何开启，热更新的原理
 - [ ] webpack 构建的流程
 - [ ] webpack 如何提升构建速度
@@ -47,8 +47,8 @@ https://muyiy.cn/question/
 
 周二：
 
-- [ ] https://leetcode-cn.com/problems/permutations/
-- [ ] https://leetcode-cn.com/problems/rotate-list/
+- [x] https://leetcode-cn.com/problems/permutations/
+- [x] https://leetcode-cn.com/problems/rotate-list/
 
 周三：
 
