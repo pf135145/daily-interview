@@ -57,8 +57,8 @@ https://muyiy.cn/question/
 
 周四：
 
-- [ ] https://leetcode-cn.com/problems/linked-list-cycle-ii/
-- [ ] https://leetcode-cn.com/problems/sort-list/
+- [x] https://leetcode-cn.com/problems/linked-list-cycle-ii/
+- [x] https://leetcode-cn.com/problems/sort-list/
 
 周五：
 
