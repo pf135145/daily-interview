@@ -62,7 +62,7 @@ https://muyiy.cn/question/
 
 周五：
 
-- [ ] https://leetcode-cn.com/problems/lru-cache/
+- [x] https://leetcode-cn.com/problems/lru-cache/
 - [ ] https://leetcode-cn.com/problems/kth-largest-element-in-an-array/
 
 周末：
