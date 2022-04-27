@@ -1,41 +1,39 @@
-function asyncToGen(genFunction) {
-  return function (...args) {
-    const gen = genFunction.apply(this, args);
+function asyncToGen(gen) {
+  return function(...arg) {
+    let g = gen.apply(this, arg)
+    
     return new Promise((resolve, reject) => {
-      function step(key, arg) {
-        let genResult;
+      function next(arg) {
+        let res = undefined
         try {
-          genResult = gen[key](arg);
-        } catch (err) {
-          return reject(err);
+          res = g.next(arg)
+        } catch (e) {
+          reject(e)
         }
-        const { value, done } = genResult;
+        const { value, done } = res
         if (done) {
-          return resolve(value);
+          return resolve(value)
+        } else {
+
         }
-        return Promise.resolve(value).then(
-          (val) => {
-            step('next', val);
-          },
-          (err) => {
-            step('throw', err);
-          },
-        );
       }
-      step('next');
-    });
-  };
+
+    })
+  }
 }
-const getData = () => new Promise(resolve => setTimeout(() => resolve('data'), 1000));
+const getData = (p) => new Promise(resolve => {
+  console.log(p)
+  setTimeout(() => resolve('data'), 1000)
+});
 function* testG() {
-  const data = yield getData();
+  const data = yield getData(1);
   console.log('data: ', data);
-  const data2 = yield getData();
+  const data2 = yield getData(2);
   console.log('data2: ', data2);
   return 'success';
 }
 
-const gen = asyncToGen(testG);
+const gen = asyncToGenerator(testG);
 gen().then(res => console.log(res));
 
 function asyncToGenerator(generatorFunc) {
@@ -92,13 +90,13 @@ function asyncToGenerator(generatorFunc) {
             //      // 最外部的test().then(res => console.log(res))的then就开始执行了
             //    })
             // })
-            function onResolve(val) {
+            (val) => {
               step("next", val)
             },
             // 如果promise被reject了 就再次进入step函数
             // 不同的是，这次的try catch中调用的是gen.throw(err)
             // 那么自然就被catch到 然后把promise给reject掉啦
-            function onReject(err) {
+            (err) => {
               step("throw", err)
             },
           )
