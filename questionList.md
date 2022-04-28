@@ -28,7 +28,7 @@
 
 https://muyiy.cn/question/
 
-- [ ] 1.手写 async/await 实现，其内部远离
+- [x] 1.手写 async/await 实现，其内部远离
 - [ ] 2.实现一个 node 异步函数的 promisify
 - [x] 3.实现 obj2json 函数
 - [x] 4.手写继承 原型链继承、类继承、组合继承、寄生组合继承、es6 继承。ES5/ES6 继承除了写法上还有什么区别( (https://muyiy.cn/question/js/7.html )

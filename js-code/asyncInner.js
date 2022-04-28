@@ -1,41 +1,52 @@
+// 实现asyc/await
+
+// 思路：实现一个能够自动执行的 Generator 函数（co模块）
+
 function asyncToGen(gen) {
   return function(...arg) {
     let g = gen.apply(this, arg)
-    
     return new Promise((resolve, reject) => {
-      function next(arg) {
-        let res = undefined
+      function walk(type = 'next', arg){
+        let res
         try {
-          res = g.next(arg)
-        } catch (e) {
-          reject(e)
+          res = g[type](arg)
+        } catch (error) {
+          return reject(error) // 这里要return
         }
-        const { value, done } = res
+        const {value, done} = res
         if (done) {
-          return resolve(value)
+          resolve(value)
         } else {
-
+          return Promise.resolve(value).then((data) => {
+            walk('next', data)
+          }, (err) => {
+            console.log(err, 'err-------')
+            reject(err)
+            // walk('throw', err) 这样也是一种解决错误的办法
+          })
         }
       }
-
+      walk()
     })
   }
 }
-const getData = (p) => new Promise(resolve => {
-  console.log(p)
-  setTimeout(() => resolve('data'), 1000)
+const getData = (p) => new Promise((resolve, reject) => {
+  setTimeout(() => reject(p + 1), 1000)
 });
-function* testG() {
+function* testG(p) {
+  console.log(p, '--')
   const data = yield getData(1);
   console.log('data: ', data);
-  const data2 = yield getData(2);
+  const data2 = yield getData(data);
   console.log('data2: ', data2);
   return 'success';
 }
 
-const gen = asyncToGenerator(testG);
-gen().then(res => console.log(res));
+const gen = asyncToGen(testG);
+gen(4).then(res => console.log(res), err => { console.log(err, '--------')});
 
+
+// 思路
 function asyncToGenerator(generatorFunc) {
   // 返回的是一个新的函数
   return function(...args) {
