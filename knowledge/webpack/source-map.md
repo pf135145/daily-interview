@@ -93,10 +93,11 @@ cheap-module-eval-source-map，使用 eval 能加快 rebuild 速度，cheap 模�
 ### 生产环境
 
 #### 不考虑 .map 文件的暴露：
-cheap-module-source-map
+
+直接使用source-map
 
 #### 考虑 .map 文件的暴露：
 
-使用 hidden-source-map，通常会用一些前端监控系统，将 source map 文件传到该系统上，JavaScript 出错后上报错误信息，系统使用第三方工具，通过 .map 文件和错误信息分析出原始代码的错误位置，展示在监控平台上
+使用 hidden-source-map，通常会用一些前端监控系统，将源代码以及 source map 文件传到该系统上，JavaScript 出错后上报错误信息，系统使用第三方工具（mozilla/source-map库）还原源代码的报错位置，快速定位线上问题
 
 或者通过服务端白名单配置，来判断是否让用户获取 .map 文件
