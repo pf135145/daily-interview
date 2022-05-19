@@ -122,18 +122,106 @@ all 和 initial 区别
 
 ## 7. 如何提高webpack的构建速度
 
-### 
+### 通过 resolve 缩小查找范围
+
+alias 替换模块引用路径，加快模块查找速度
+
+```js
+resolve.alias: {
+  utils: path.resolve(__dirname, 'src/utils/'),
+  // 替换前 import date2Str from '../../utils/date2Str';
+  // 可改成 import date2Str from 'utils/date2Str';
+  'vue': path.resolve(__dirname, './node_modules/vue/dist/vue.common.js')
+},
+```
+
+modules 
+
+直接设置 resolve.modules 值为当前目录的 node_modules，减少层层寻找 node_modules 的开销
 
 
+```js
+resolve.modules:[path.resolve(__dirname, 'node_modules')]
+```
 
+extensions
 
+指定加载文件时的扩展名
 
+```js
+// 优先级从左到右
+resolve.extensions: [".js",".jsx",".json",".css"]
 
+```
 
+### DLL 动态链接库
 
+在项目的开发过程中，往往会用到很多公共库，这些公共库一般都不会有改动，可以把这些不变的代码打包进同一个 chunk 中，同业务代码进行隔离，减少打包时间
 
+新建 webpack.dll.config.js 配置文件，定义需要 dll 的代码，通过 DllPlugin 生成 manifest.json 文件
 
+```js
+const path = require("path");
+const DllPlugin = require("webpack/lib/DllPlugin");
 
+module.exports = {
+  mode: "development",
+  entry: {
+    react: ["react", "react-dom"],
+  },
+  output: {
+    path: path.resolve(__dirname, "dist"),
+    filename: "[name].dll.js", //react.dll.js
+    library: "_dll_[name]",
+  },
+  plugins: [
+    new DllPlugin({
+      name: "_dll_[name]",
+      path: path.join(__dirname, "dist", "[name].manifest.json"), //react.manifest.json
+    }),
+  ],
+};
+```
+
+执行 webpack 命令打包 dll 代码
+
+```js
+webpack --config webpack.dll.config.js --mode=development
+```
+
+在 webpack 配置中使用 dll 文件
+
+```js
++const DllReferencePlugin = require("webpack/lib/DllReferencePlugin.js");
+module.exports = {
+  plugins: [
++    new DllReferencePlugin({
++      manifest: require("./dist/react.manifest.json"),
++    }),
+  ],
+```
+
+在 html 文件中引入
+
+```html
+<script src="react.dll.js"></script>
+```
+
+### 开启多进程打包
+
+首先，多进程打包的启动时间和进程通信上都会有一定的开销。所以应用多进程的时候要在代码量比较大的时候比较合适。
+
+thread-loader 放置在其他 loader 之前，之后的 loader 就会在一个单独的 worker 池中运行
+
+```js
+use: [
++   {
++     loader:'thread-loader',
++       options:{
++          workers:3 // 指定进程数，默认是 os.cpus().length - 1
++       }
++   },
+```
 
 
 
